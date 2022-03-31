@@ -1,0 +1,25 @@
+                {% if request.user.is_authenticated %}  
+                    {% else %}
+                                {% endif %}
+
+
+
+For novalidate in form but in realtime you will not use this ..
+ Note: Maybe you are wondering about the novalidate attribute in the form. In a real case you probably won't want to use it. It prevents the browser from "validating" the data before submitting to the server. As in the examples we are going to explore I only have "required" field errors, it would prevent us from seeing the server-side actual data validation and exploring the error states of the form rendering.
+
+
+
+When we write {{ form }} in a template, it’s actually accessing the __str__ method from the BaseForm class. The __str__ method is used to provide a string representation of an object.
+
+
+            print("the value of request.Post is : ",request.POST,type(request.POST))
+            # <QueryDict: {'csrfmiddlewaretoken': ['8N1Cc8NelXATHTHXWbZYRvtYtIgCyGc06vriXTZuxHB92iAs7w2snOlu5jusl5SX'], 'username': ['sonam'], 'password': ['admin@123']}> <class 'django.http.request.QueryDict'>
+
+ print("THIS IS :-", request.FILES)
+# <MultiValueDict: {'cover': [<TemporaryUploadedFile: istockphoto-1210775051-170667a.jpg (image/jpeg)>], 'books_pdf': [<TemporaryUploadedFile: django.pdf (application/pdf)>]}>
+
+
+value of request.FILES it is a multivalue Dict
+THIS IS :- <MultiValueDict: {'cover': [<InMemoryUploadedFile: download.jpg (image/jpeg)>], 'books_pdf': [<InMemoryUploadedFile: a-portrait-of-the-artist-as-a-young-man.pdf (application/pdf)>]}>    
+
+

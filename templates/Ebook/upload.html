@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Upload{% endblock %}
+
+{% block content %}
+
+<div class="container" mt-5 ps-5 text-start>
+    <h3>Upload page</h3><br>
+    <form action="" method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-outline-primary btn-sm" value="submit">Submit</button>
+    </form>
+
+</div>
+
+{% endblock %}

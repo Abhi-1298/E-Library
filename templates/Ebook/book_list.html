@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div>
+    <table class="table table-hover mt-5" style="text-align: center;">
+        <thead>
+            <tr>
+                <th>author</th>
+                <th>Cover</th>
+                <th>Title</th>
+                <th>publisher</th>
+                <th>Read</th>
+                <th>Download</th>
+                <th>Year</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{book.author}}</td>
+                <td>
+                    <img src="{{book.cover.url}}" alt="{{book.title}}" style="width: 100px; height: 100px;">
+                </td>
+
+                <td>{{book.title}}</td>
+
+                <td>{{book.publisher}}</td>
+
+                <!-- modelfield.url -->
+                <td><a href="{{book.books_pdf.url}}" class="btn btn-outline-primary btn-sm" target="_blank">View Pdf</a>
+                </td>
+                <td><a href="{{book.books_pdf.url}}" download class="btn btn-outline-success btn-sm">Download Pdf</a>
+                </td>
+                <td>{{book.year}}</td>
+                <form action="{% url 'delete' book.id  %}" method="post">
+                    {% csrf_token %}
+
+                    <!-- here we can use the django permissions and django  that a admin can only previlege to delete not any user-->
+                    <!-- also using {  if %perm.appname.permission_modelname%} we can apply to delete -->
+
+                    {% if request.user.is_superuser %}
+                    <td><input type="submit" class="btn btn-outline-danger btn-sm" value="Delete"></td>
+                    {% else %}
+                    <td><input type="submit" class="btn btn-outline-danger btn-sm" disabled value="Delete"></td>
+                    {% endif %}
+
+                </form>
+
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+
+{% endblock %}

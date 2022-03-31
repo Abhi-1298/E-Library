@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>User Profile</h2><br>
+
+
+Welcome to library :- {{request.user.username}}.
+<form action="" method="post">
+    {% csrf_token %}
+    <!-- to control the form we have to write it in for loop like errors  -->
+
+    <!-- for non_field errors  -->
+
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_erros %}
+    <p>{{error}}</p>
+    {% endfor %}
+    {% endif %}
+    
+    <!-- for form field -->
+    {% for fm in form %}
+    {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br> <br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
