@@ -3,7 +3,7 @@
 ### Project Description
 * A social online library where user can upload,read,download books.
 
-* Here user cannot delete uploaded files only admin have to previlege.
+* Here user cannot delete uploaded files only admin have the previlege.
 
 * Anyone can signup and make an user and read the books.
 
