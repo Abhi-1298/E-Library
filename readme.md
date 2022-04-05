@@ -9,7 +9,7 @@
 
 ### How to Install and Run the project
 
-* Run this command to clone and run 
+* Run this command to clone and run in local server
 ```
  git clone https://github.com/Abhi-1298/E-library.git
  ```
