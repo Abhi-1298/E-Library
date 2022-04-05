@@ -8,7 +8,11 @@
 * Anyone can signup and make an user and read the books.
 
 ### How to Install and Run the project
-* Run this command to clone and run - git clone https://github.com/Abhi-1298/E-library.git
+
+* Run this command to clone and run 
+```
+ git clone https://github.com/Abhi-1298/E-library.git
+ ```
 
 * Create an Enviornment 
 ```
